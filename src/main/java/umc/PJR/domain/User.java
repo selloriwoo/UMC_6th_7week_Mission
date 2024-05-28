@@ -26,7 +26,7 @@ public class User extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String name;
 
-    //@Enumerated(EnumType.STRING)
+    
     //@Column(columnDefinition = "VARCHAR(10)")
     @Enumerated(EnumType.STRING)
     private Gender gender;
