@@ -23,4 +23,15 @@ public class FoodPreference {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "foodType_id")
     private FoodType foodType;
+
+    public void setUser(User user){
+        if(this.user != null)
+            user.getFoodPreferenceList().remove(this);
+        this.user = user;
+        user.getFoodPreferenceList().add(this);
+    }
+
+    public void setFoodType(FoodType foodType){
+        this.foodType = foodType;
+    }
 }
