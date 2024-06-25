@@ -1,6 +1,6 @@
 package umc.PJR.converter;
 
-import umc.PJR.web.TempResponse;
+import umc.PJR.web.dto.TempResponse;
 
 public class TempConverter {
 

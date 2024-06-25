@@ -4,10 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import umc.PJR.domain.common.BaseEntity;
 
-import java.time.LocalDate;
-
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -20,18 +19,21 @@ public class Review extends BaseEntity {
     @Column(nullable = false, length = 500)
     private String content;
 
-    private float starPoint;
+    @Column(nullable = false)
+    private Float starPoint;
 
-    private LocalDate date;
+    //private LocalDate date;
 
-    @Column(nullable = false, length = 50)
-    private String photo;
+//    @Column(nullable = false, length = 50)
+//    private String photo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
+
 }
