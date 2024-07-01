@@ -1,4 +1,4 @@
-package umc.PJR.web.dto;
+package umc.PJR.web;
 
 public class TempRequest {
 }
