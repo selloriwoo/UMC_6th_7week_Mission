@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.PJR.apiPayload.ApiResponse;
 import umc.PJR.converter.TempConverter;
 import umc.PJR.service.TempService.TempQueryService;
-import umc.PJR.web.TempResponse;
+import umc.PJR.web.dto.TempResponse;
 
 @RestController
 @RequestMapping("/temp")

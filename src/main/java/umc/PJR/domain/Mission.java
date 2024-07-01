@@ -5,12 +5,12 @@ import lombok.*;
 import umc.PJR.domain.common.BaseEntity;
 import umc.PJR.domain.mapping.UserMission;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -23,11 +23,11 @@ public class Mission extends BaseEntity {
     @Column(nullable = false, length = 500)
     private String content;
 
-    private LocalDate endDate;
+//    private LocalDate endDate; 구현해야함
 
-    private int getPoint;
+    private Integer getPoint;
 
-    private int needPay;
+    private Integer needPay;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
