@@ -2,6 +2,7 @@ package umc.PJR.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.PJR.domain.enums.RestaurantType;
 import umc.PJR.domain.mapping.FoodPreference;
 
 import java.util.ArrayList;
@@ -18,8 +19,8 @@ public class FoodType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private RestaurantType name;
 
     @OneToMany(mappedBy = "foodType", cascade = CascadeType.ALL)
     private List<FoodPreference> foodPreferenceList = new ArrayList<>();

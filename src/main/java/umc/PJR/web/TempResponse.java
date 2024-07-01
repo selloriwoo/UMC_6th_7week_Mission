@@ -1,4 +1,4 @@
-package umc.PJR.web.dto;
+package umc.PJR.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
