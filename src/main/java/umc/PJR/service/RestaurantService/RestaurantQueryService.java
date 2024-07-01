@@ -11,4 +11,6 @@ public interface RestaurantQueryService {
     Optional<Restaurant> findRestaurant(Long id);
 
     Page<Review> getReviewList(Long restaurantId, Integer page);
+
+    Page<Review> getUserReviewList(Long userId, Integer page);
 }

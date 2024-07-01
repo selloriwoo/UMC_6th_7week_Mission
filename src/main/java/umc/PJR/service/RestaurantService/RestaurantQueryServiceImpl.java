@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.PJR.domain.Restaurant;
 import umc.PJR.domain.Review;
+import umc.PJR.domain.User;
 import umc.PJR.repository.RestaurantRepository;
 import umc.PJR.repository.ReviewRepository;
+import umc.PJR.repository.UserRepository;
 
 import java.util.Optional;
 
@@ -19,6 +21,7 @@ public class RestaurantQueryServiceImpl implements RestaurantQueryService{
 
     private final RestaurantRepository restaurantRepository;
     private final ReviewRepository reviewRepository;
+    private final UserRepository userRepository;
     @Override
     public Optional<Restaurant> findRestaurant(Long id) {
         return restaurantRepository.findById(id);
@@ -31,5 +34,14 @@ public class RestaurantQueryServiceImpl implements RestaurantQueryService{
         Page<Review> restaurantPage = reviewRepository.findAllByRestaurant(restaurant, PageRequest.of(page, 10));
 
         return restaurantPage;
+    }
+
+    @Override
+    public Page<Review> getUserReviewList(Long userId, Integer page) {
+        User user = userRepository.findById(userId).get();
+
+        Page<Review> userReviewPage = reviewRepository.findAllByUser(user, PageRequest.of(page, 10));
+
+        return userReviewPage;
     }
 }
